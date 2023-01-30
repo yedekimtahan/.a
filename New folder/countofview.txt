@@ -1,0 +1,22 @@
+1.Modelsdeki Post a view deyiseni elave ele
+
+views = models.IntegerField(default=0)
+
+
+
+def update_views(self, *args, **kwargs):
+      self.views = self.views + 1
+       super(Post, self).save(*args, **kwargs)
+
+
+
+Post HTML 
+
+
+2. container altina div klasinin icine  -> onload="{{post.update_views}}"
+ 
+
+3. title h1 etiketinin altina elave ele
+
+<p class="text-sm mb-5 md:text-base font-normal text-gray-600">
+						{{ post.timestamp}} | Izlenme sayi {{  post.views }} </p>
